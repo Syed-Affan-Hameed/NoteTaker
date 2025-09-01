@@ -1,3 +1,4 @@
+import { connectMongoDb } from "../config/db.js";
 
 
 export const getAllNotes=(req, res) => {
