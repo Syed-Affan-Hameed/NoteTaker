@@ -66,7 +66,7 @@ export const deleteNote = async(req, res) => {
 
 
     } catch (error) {
-          console.log("Error updating the note",error);
+          console.log("Error deleting the note",error);
          res.status(500).json({message:"500: Internal server error"});
 
     }
