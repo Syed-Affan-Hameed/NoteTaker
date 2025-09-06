@@ -2,7 +2,7 @@ import mongoose from "mongoose";
 // Create a mongoose schema
 // Export a model based on that schema
 
-const noteSchmema = new mongoose.Schema({
+const noteSchema = new mongoose.Schema({
     title:{
         type:String,
         required: true
@@ -13,7 +13,7 @@ const noteSchmema = new mongoose.Schema({
     }
 }, {timestamps:true});
 
-const NoteModel = mongoose.model(noteSchmema);
+const NoteModel = mongoose.model("Note",noteSchema);
 
 export default NoteModel;
 
