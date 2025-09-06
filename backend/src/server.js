@@ -2,12 +2,14 @@ import express from "express";
 import cors from "cors";
 import dotenv from "dotenv";
 import notesRouter from "./routes/notes.routes.js";
+import { connectMongoDb } from "./config/db.js";
 
 const app = express();
 dotenv.config();
 
 const PORT = process.env.PORT || 5005;
-app.use(express.json());
+connectMongoDb();
+app.use(express.json());  
 app.use("/api/notes", notesRouter);
 
 app.listen(PORT, () => {
