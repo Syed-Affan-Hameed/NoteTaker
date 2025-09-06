@@ -72,3 +72,20 @@ export const deleteNote = async(req, res) => {
     }
 
 };
+
+export const getNote = async (req,res)=>{
+    try {
+        const noteId = req.params.id;
+        const Note = await NoteModel.findOne(noteId);
+
+        if(!Note){
+            res.status(404).json({message:`Note with Id:${noteId} not found`});
+        }
+        res.status(200).json({message:"Note found", Note});
+        
+    } catch (error) {
+          console.log("Error finding the note ",error);
+         res.status(500).json({message:"500: Internal server error"});
+
+    }
+}
